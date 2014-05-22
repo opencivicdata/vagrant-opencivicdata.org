@@ -12,20 +12,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
     config.vm.network :forwarded_port, guest: 22, host: SSH_PORT, auto_correct: true
 
-    config.vm.define "web" do |web|
+    config.vm.define "data" do |data|
         # assign a private IP
-        web.vm.network "private_network", ip: "10.42.2.100"
+        data.vm.network "private_network", ip: "10.42.2.100"
 
         FOLDERS.each do |dest, src|
-            web.vm.synced_folder src, dest
+            data.vm.synced_folder src, dest
         end
 
-        web.vm.provider "virtualbox" do |v|
-            v.memory = 512
+        data.vm.provider "virtualbox" do |v|
             v.name = "data.opencivicdata.org"
         end
 
-        web.vm.provision "ansible" do |ansible|
+        data.vm.provision "ansible" do |ansible|
             ansible.playbook = "ansible/site.yml"
             ansible.inventory_path = "ansible/hosts.vagrant"
             ansible.limit = "all"
