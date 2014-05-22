@@ -9,5 +9,7 @@ vagrant-opencivicdata.org
 ## Usage
 
 vagrant up db     # start a local Postgres on 10.42.2.101
+
 vagrant up data   # start data.opencivicdata.org on 10.42.2.100
+
 vagrant up api    # start api.opencivicdata.org on 10.42.2.102
