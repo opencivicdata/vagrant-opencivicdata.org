@@ -3,7 +3,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 SSH_PORT = 2232
-FOLDERS = {"/projects/data.opencivicdata.org/src/data.opencivicdata.org" => "../data.opencivicdata.org" }
+FOLDERS = {"/projects/opencivicdata.org/src/opencivicdata.org" => "../data.opencivicdata.org" }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "chef/ubuntu-14.04"
@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
     config.vm.network :forwarded_port, guest: 22, host: SSH_PORT, auto_correct: true
 
-    config.vm.define "data" do |data|
+    config.vm.define "site" do |data|
         # assign a private IP
         data.vm.network "private_network", ip: "10.42.2.100"
 
@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
 
         data.vm.provider "virtualbox" do |v|
-            v.name = "data.opencivicdata.org"
+            v.name = "opencivicdata.org"
         end
 
         data.vm.provision "ansible" do |ansible|

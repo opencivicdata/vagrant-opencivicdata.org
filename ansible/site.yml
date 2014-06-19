@@ -1,11 +1,11 @@
 ---
-- name: Install data.opencivicdata.org
-  hosts: opencivicdata-data
+- name: Install opencivicdata.org
+  hosts: opencivicdata-site
   user: ubuntu
   sudo: yes
   roles:
     - role: common-roles/common
-      hostname: ocdapi
+      hostname: opencivicdata.org
       extra_packages:
         - libpq-dev
         - unzip
@@ -13,13 +13,13 @@
     - role: common-roles/ebs
       device_letter: k
       volume_size: 5
-      ebs_path: /projects/data.opencivicdata.org/
+      ebs_path: /projects/opencivicdata.org/
     - role: common-roles/django
-      project_name: data.opencivicdata.org
+      project_name: opencivicdata.org
       git_repositories:
           - repo: "git://github.com/opencivicdata/data.opencivicdata.org.git"
-            dir: data.opencivicdata.org
+            dir: opencivicdata.org
       wsgi_module: data.wsgi:application
       django_environment: {}
-    - role: data
-      project_name: data.opencivicdata.org
+    - role: opencivicdata
+      project_name: opencivicdata.org
