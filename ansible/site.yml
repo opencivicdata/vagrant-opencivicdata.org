@@ -20,6 +20,5 @@
           - repo: "git://github.com/opencivicdata/data.opencivicdata.org.git"
             dir: opencivicdata.org
       wsgi_module: data.wsgi:application
-      django_environment: {}
     - role: opencivicdata
       project_name: opencivicdata.org
