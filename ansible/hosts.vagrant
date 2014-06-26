@@ -1,2 +1,3 @@
 opencivicdata-site  ansible_ssh_host=10.42.2.100 ansible_ssh_user=vagrant
 opencivicdata-db    ansible_ssh_host=10.42.2.101 ansible_ssh_user=vagrant
+opencivicdata-api   ansible_ssh_host=10.42.2.102 ansible_ssh_user=vagrant
