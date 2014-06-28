@@ -4,7 +4,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 SSH_PORT = 2232
 SITE_FOLDERS = {"/projects/opencivicdata.org/src/opencivicdata.org" => "../data.opencivicdata.org" }
-API_FOLDERS = {"/projects/api.opencivicdata.org/src/api.opencivicdata.org" => "../api",
+API_FOLDERS = {"/projects/api.opencivicdata.org/src/api.opencivicdata.org" => "../api.opencivicdata.org",
                "/projects/api.opencivicdata.org/src/imago" => "../imago" }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
