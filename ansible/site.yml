@@ -17,7 +17,7 @@
     - role: common-roles/django
       project_name: opencivicdata.org
       git_repositories:
-          - repo: "git://github.com/opencivicdata/data.opencivicdata.org.git"
+          - repo: "git://github.com/opencivicdata/opencivicdata.org.git"
             dir: opencivicdata.org
       wsgi_module: data.wsgi:application
     - role: opencivicdata

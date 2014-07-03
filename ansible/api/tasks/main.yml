@@ -12,5 +12,8 @@
   command: /projects/{{project_name}}/virt/bin/python manage.py loadshapefiles --settings=ocdapi.settings -osldl-13,sldu-13,cd-113,place-13,county-13 chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
 - name: loaddivisions
-  command: /projects/{{project_name}}/virt/bin/python manage.py loaddivisions --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
+  command: /projects/{{project_name}}/virt/bin/python manage.py loaddivisions chdir=/projects/{{project_name}}/src/api.opencivicdata.org
+  environment: django_environment
+- name: loadmappings
+  command: /projects/{{project_name}}/virt/bin/python manage.py loadmappings --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment

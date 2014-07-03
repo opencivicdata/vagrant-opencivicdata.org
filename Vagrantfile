@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "site" do |site|
         site.vm.network "private_network", ip: "10.42.2.100"
 
-        site.vm.synced_folder "../data.opencivicdata.org", "/projects/opencivicdata.org/src/opencivicdata.org"
+        site.vm.synced_folder "../opencivicdata.org", "/projects/opencivicdata.org/src/opencivicdata.org"
 
         site.vm.provider "virtualbox" do |v|
             v.name = "opencivicdata.org"
