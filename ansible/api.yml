@@ -24,3 +24,6 @@
       wsgi_module: ocdapi.wsgi:application
     - role: api
       project_name: api.opencivicdata.org
+      git_repositories:
+          - repo: "git://github.com/opencivicdata/python-opencivicdata.git"
+            dir: opencivicdata

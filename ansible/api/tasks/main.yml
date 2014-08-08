@@ -14,6 +14,13 @@
 - name: loaddivisions
   command: /projects/{{project_name}}/virt/bin/python manage.py loaddivisions chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
-- name: loadmappings
-  command: /projects/{{project_name}}/virt/bin/python manage.py loadmappings --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
-  environment: django_environment
+# - name: loadmappings
+#   command: /projects/{{project_name}}/virt/bin/python manage.py loadmappings --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
+#   environment: django_environment
+- name: install opencivicdata requirements
+  pip: requirements=/projects/{{project_name}}/src/python-opencivicdata/requirements-django.txt virtualenv=/projects/{{project_name}}/virt/
+  sudo_user: "{{project_name}}"
+  with_items: git_repositories
+  notify:
+    - restart uwsgi
+    - restart nginx

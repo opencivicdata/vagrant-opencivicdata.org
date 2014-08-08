@@ -54,9 +54,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.define "api" do |api|
         api.vm.network "private_network", ip: "10.42.2.102"
+        api.vm.network :forwarded_port, guest: 8801, host: 8801, id: "api"
 
         api.vm.synced_folder "../api.opencivicdata.org", "/projects/api.opencivicdata.org/src/api.opencivicdata.org", mount_options: ["dmode=777,fmode=666"]
         api.vm.synced_folder "../imago", "/projects/api.opencivicdata.org/src/imago"
+        api.vm.synced_folder "../python-opencivicdata", "/projects/api.opencivicdata.org/src/python-opencivicdata", mount_options: ["dmode=777,fmode=666"]
 
         api.vm.provider "virtualbox" do |v|
             v.name = "api.opencivicdata.org"
