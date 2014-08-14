@@ -22,5 +22,6 @@
           - repo: "git://github.com/opencivicdata/imago.git"
             dir: imago
       wsgi_module: ocdapi.wsgi:application
+    - role: common-roles/https
     - role: api
       project_name: api.opencivicdata.org
