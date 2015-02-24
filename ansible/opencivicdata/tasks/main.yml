@@ -2,6 +2,6 @@
 - name: migrate
   command: /projects/{{project_name}}/virt/bin/python manage.py migrate chdir=/projects/{{project_name}}/src/opencivicdata.org
   environment: django_environment
-- name: load_jurisdictions
-  command: /projects/{{project_name}}/virt/bin/python manage.py import_jurisdictions chdir=/projects/{{project_name}}/src/opencivicdata.org /projects/{{project_name}}/src/opencivicdata.org/resources/active-jurisdictions.csv
-  environment: django_environment
+# - name: load_jurisdictions
+#   command: /projects/{{project_name}}/virt/bin/python manage.py import_jurisdictions chdir=/projects/{{project_name}}/src/opencivicdata.org /projects/{{project_name}}/src/opencivicdata.org/resources/active-jurisdictions.csv
+#   environment: django_environment
