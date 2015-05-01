@@ -68,6 +68,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             ansible.limit = "all"
             # needed for common tasks to avoid EBS & checkout over synced_folders
             ansible.extra_vars = { deploy_type: "vagrant" }
+            if ENV['USE_GEO']
+                ansible.extra_vars['use_geo'] = true
+            end
             # seems to avoid the delay with private IP not being available
             ansible.raw_arguments = ["-T 30"]
         end
