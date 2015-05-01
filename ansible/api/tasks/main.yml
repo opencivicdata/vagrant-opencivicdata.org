@@ -2,15 +2,19 @@
 - name: download shapefiles
   command: /projects/{{project_name}}/virt/bin/python scripts/download.py chdir=/projects/{{project_name}}/src/api.opencivicdata.org creates=shapefiles/sldl-14
   sudo_user: "{{project_name}}"
+  when: use_geo == true
 - name: migrate
   command: /projects/{{project_name}}/virt/bin/python manage.py migrate --settings=ocdapi.settings --noinput chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
 - name: loadshapefiles
   command: /projects/{{project_name}}/virt/bin/python manage.py loadshapefiles --settings=ocdapi.settings -osldl-14,sldu-14,cd-114,place-14,county-14 chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
+  when: use_geo == true
 - name: loaddivisions
   command: /projects/{{project_name}}/virt/bin/python manage.py loaddivisions us chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
 - name: loadmappings
   command: /projects/{{project_name}}/virt/bin/python manage.py loadmappings --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
+  when: use_geo == true
+
