@@ -1,3 +1,4 @@
 ---
 django_environment:
     SECRET_KEY: not-so-secret
+use_geo: false
