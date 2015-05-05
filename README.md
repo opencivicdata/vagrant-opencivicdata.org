@@ -8,8 +8,15 @@ vagrant-opencivicdata.org
 
 ## Usage
 
-vagrant up db     # start a local Postgres on 10.42.2.101
+    vagrant up db     # start a local Postgres on 10.42.2.101
 
-vagrant up site   # start opencivicdata.org on 10.42.2.100
+    vagrant up site   # start opencivicdata.org on 10.42.2.100
 
-vagrant up api    # start api.opencivicdata.org on 10.42.2.102
+    vagrant up api    # start api.opencivicdata.org on 10.42.2.102
+
+## Downloading Shapefiles
+
+By default shapefiles aren't downloaded, enable them via:
+
+    export USE_GEO=1
+    vagrant provision api
