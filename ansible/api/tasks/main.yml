@@ -7,7 +7,7 @@
   command: /projects/{{project_name}}/virt/bin/python manage.py migrate --settings=ocdapi.settings --noinput chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
 - name: loadshapefiles
-  command: /projects/{{project_name}}/virt/bin/python manage.py loadshapefiles --settings=ocdapi.settings -osldl-14,sldu-14,cd-114,place-14,county-14 chdir=/projects/{{project_name}}/src/api.opencivicdata.org
+  command: /projects/{{project_name}}/virt/bin/python manage.py loadshapefiles --settings=ocdapi.settings -o sldl-14,sldu-14,cd-114,place-14,county-14,nh-12 chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
   when: use_geo == true
 - name: loaddivisions
