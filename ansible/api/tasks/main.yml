@@ -13,6 +13,7 @@
 - name: loaddivisions
   command: /projects/{{project_name}}/virt/bin/python manage.py loaddivisions us chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
+  when: use_geo == true
 - name: loadmappings
   command: /projects/{{project_name}}/virt/bin/python manage.py loadmappings --quiet chdir=/projects/{{project_name}}/src/api.opencivicdata.org
   environment: django_environment
