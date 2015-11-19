@@ -7,7 +7,7 @@ SSH_PORT = 2232
 Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box = "chef/ubuntu-14.04"
+    config.vm.box = "bento/ubuntu-14.04"
 
     # awkward fix for SSH reassignment issue (re-evaluate w/ Vagrant 1.5.4)
     config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
